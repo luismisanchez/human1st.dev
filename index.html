@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>human1st.dev - Tecnología con propósito</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;600&family=Lora:ital@1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        caveat: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f4f4f5',
+                            100: '#e4e4e7',
+                            800: '#27272a',
+                            900: '#18181b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animaciones suaves */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-brand-50 text-brand-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navegación -->
+    <header class="w-full px-6 py-6 md:px-12 flex justify-between items-center bg-transparent relative z-10">
+        <div class="flex items-center gap-2">
+            <!-- Icono de Huella Digital -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-900"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg>
+            <span class="text-xl font-semibold tracking-tight text-brand-900">human1st<span class="text-gray-400 font-light">.dev</span></span>
+        </div>
+        <div class="flex items-center gap-6">
+            <button id="lang-btn" onclick="toggleLang()" class="text-xs font-bold text-gray-400 hover:text-brand-900 transition-colors duration-200 uppercase tracking-wider">EN</button>
+            <a href="#" onclick="secureContact(event)" data-i18n="contact" class="text-sm font-medium text-brand-800 hover:text-black transition-colors duration-200">
+                Contacto
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-4 py-20 md:py-32">
+        <div class="max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 text-xs font-medium text-gray-600 mb-8 fade-in-up">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span data-i18n="tag">Desarrollando ideas</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-semibold text-brand-900 tracking-tight leading-tight mb-6 fade-in-up delay-100">
+                <span data-i18n="h1_1">La tecnología es el medio.<br></span>
+                <span data-i18n="h1_2" class="text-gray-400 font-light">Las personas son el fin.</span>
+            </h1>
+            
+            <p data-i18n="sub" class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-12 fade-in-up delay-200">
+                Creamos herramientas digitales enfocadas en aportar valor real. Soluciones diseñadas con empatía, pensadas para facilitar el día a día y construir puentes donde más se necesitan.
+            </p>
+        </div>
+
+        <!-- Cita de Robe -->
+        <div class="w-full max-w-4xl mx-auto mt-12 mb-8 fade-in-up delay-300">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <blockquote data-i18n="quote" class="text-3xl md:text-5xl font-caveat text-brand-800 leading-relaxed mb-6">
+                        Me gusta mucho tener ideas contradictorias, porque así, aunque siempre meto la pata, siempre tengo razón.
+                    </blockquote>
+                    <cite class="text-lg font-medium text-gray-500 uppercase tracking-widest not-italic">
+                        — Robe
+                    </cite>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pilares / Filosofía -->
+        <div class="w-full max-w-5xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 px-4 fade-in-up delay-300">
+            <div class="text-left p-6 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-gray-100">
+                <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-800"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <h3 data-i18n="p1_title" class="text-xl font-semibold mb-3">Empatía Digital</h3>
+                <p data-i18n="p1_desc" class="text-gray-600 leading-relaxed text-sm">
+                    El código no entiende de emociones, pero quienes lo usamos sí. Diseñamos pensando en quién está al otro lado de la pantalla.
+                </p>
+            </div>
+            
+            <div class="text-left p-6 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-gray-100">
+                <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-800"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                </div>
+                <h3 data-i18n="p2_title" class="text-xl font-semibold mb-3">Impacto Real</h3>
+                <p data-i18n="p2_desc" class="text-gray-600 leading-relaxed text-sm">
+                    Creemos en proyectos que, sin importar su tamaño, resuelven problemas reales y mejoran, aunque sea un poco, la vida de las personas.
+                </p>
+            </div>
+
+            <div class="text-left p-6 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-gray-100">
+                <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-800"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                </div>
+                <h3 data-i18n="p3_title" class="text-xl font-semibold mb-3">Accesibilidad</h3>
+                <p data-i18n="p3_desc" class="text-gray-600 leading-relaxed text-sm">
+                    La tecnología debe abrir puertas, no cerrarlas. Construimos herramientas simples, directas y al alcance de todos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Sección Proyectos -->
+        <div class="w-full max-w-5xl mx-auto mt-24 px-4 fade-in-up delay-300">
+            <div class="flex flex-col items-center mb-12 text-center">
+                <h2 data-i18n="projects_title" class="text-3xl md:text-4xl font-semibold text-brand-900 mb-4">Nuestros Proyectos</h2>
+                <div class="w-16 h-1 bg-brand-200 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Proyecto 1: La caja de Marcos -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-3xl z-10">
+                        <span data-i18n="project_status">En proceso de desarrollo</span>
+                    </div>
+                    
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Icono de cubo (representando la caja) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-900"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-3 text-brand-900">
+                        <span data-i18n="project1_title">La caja de Marcos</span>
+                    </h3>
+                    
+                    <p data-i18n="project1_desc" class="text-gray-600 leading-relaxed mb-6">
+                        Una app educativa interactiva diseñada para niñes con TEA. Un espacio seguro y accesible donde pueden explorar y aprender arrastrando y soltando letras, números, colores, formas y animales.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_tea">TEA</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_edu">Educativo</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_interactive">Interactivo</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_mit">Licencia MIT</span>
+                    </div>
+
+                    <!-- Enlaces del proyecto -->
+                    <div class="flex items-center gap-5 mt-6 border-t border-gray-100 pt-5">
+                        <a href="https://github.com/luismisanchez/marcos-box" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-brand-900 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <div class="inline-flex items-center gap-2 text-sm font-medium text-gray-400 cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <span class="flex items-center gap-1.5">
+                                Google Play 
+                                <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full uppercase tracking-wider" data-i18n="pending">Pendiente</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Mapa PMR Madrid -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-3xl z-10">
+                        <span data-i18n="project_status_completed">Completado</span>
+                    </div>
+                    
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Icono de mapa -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-900"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-3 text-brand-900">
+                        <span data-i18n="project2_title">Mapa Plazas PMR Madrid</span>
+                    </h3>
+                    
+                    <p data-i18n="project2_desc" class="text-gray-600 leading-relaxed mb-6">
+                        Un mapa interactivo que localiza las plazas de estacionamiento reservadas para Personas con Movilidad Reducida en la ciudad de Madrid, facilitando el día a día.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_pmr">PMR</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_map">Mapa</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-500 font-medium" data-i18n="tag_accessibility">Accesibilidad</span>
+                    </div>
+
+                    <!-- Enlaces del proyecto -->
+                    <div class="flex items-center gap-5 mt-6 border-t border-gray-100 pt-5">
+                        <a href="https://luismi.sanchezarteaga.es/mapa-de-plazas-de-estacionamiento-para-personas-de-movilidad-reducida-de-madrid/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-brand-900 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <span data-i18n="view_project">Ver proyecto</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Colabora -->
+        <div class="w-full max-w-4xl mx-auto mt-24 px-4 fade-in-up delay-300">
+            <div class="bg-brand-100/30 rounded-3xl p-8 md:p-12 border border-brand-100 text-center">
+                <h2 data-i18n="collab_title" class="text-2xl md:text-3xl font-semibold text-brand-900 mb-4">Colabora</h2>
+                <p data-i18n="collab_desc" class="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed text-lg">
+                    Somos una agencia pequeña, un proyecto casi personal. Si te apetece, aporta tus ideas. ¿Qué quieres que construyamos? ¿A quién ayudaría tu propuesta?
+                </p>
+                <a href="#" onclick="secureContact(event)" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand-900 hover:bg-black transition-colors duration-200">
+                    <span data-i18n="collab_cta">Cuéntanos tu idea</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+
+                <!-- Guiño a diseñadores -->
+                <div class="mt-8 pt-6 border-t border-brand-200/60 max-w-lg mx-auto">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-gray-600 text-center sm:text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500 shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                        <p data-i18n="collab_designers">
+                            <strong>¿Eres diseñadora?</strong> Necesitamos tu visión para asegurar que estas herramientas sean tan humanas y bellas como útiles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 text-center border-t border-gray-200 mt-12 bg-white">
+        <p class="text-sm text-gray-500">
+            &copy; <span id="current-year"></span> human1st.dev. <span data-i18n="footer">Todos los derechos reservados.</span>
+        </p>
+    </footer>
+
+    <script>
+        // Set current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Anti-spam email obfuscation
+        function secureContact(e) {
+            e.preventDefault();
+            const p1 = 'hola';
+            const p2 = 'human1st';
+            const p3 = 'dev';
+            window.location.href = `mailto:${p1}@${p2}.${p3}`;
+        }
+
+        // Language Dictionary
+        const translations = {
+            es: {
+                contact: "Contacto",
+                tag: "Desarrollando ideas",
+                h1_1: "La tecnología es el medio.<br>",
+                h1_2: "Las personas son el fin.",
+                sub: "Creamos herramientas digitales enfocadas en aportar valor real. Soluciones diseñadas con empatía, pensadas para facilitar el día a día y construir puentes donde más se necesitan.",
+                quote: "Me gusta mucho tener ideas contradictorias, porque así, aunque siempre meto la pata, siempre tengo razón.",
+                p1_title: "Empatía Digital",
+                p1_desc: "El código no entiende de emociones, pero quienes lo usamos sí. Diseñamos pensando en quién está al otro lado de la pantalla.",
+                p2_title: "Impacto Real",
+                p2_desc: "Creemos en proyectos que, sin importar su tamaño, resuelven problemas reales y mejoran, aunque sea un poco, la vida de las personas.",
+                p3_title: "Accesibilidad",
+                p3_desc: "La tecnología debe abrir puertas, no cerrarlas. Construimos herramientas simples, directas y al alcance de todos.",
+                projects_title: "Nuestros Proyectos",
+                project_status: "En proceso de desarrollo",
+                project1_title: "La caja de Marcos",
+                project1_desc: "Una app educativa interactiva diseñada para niñes con TEA. Un espacio seguro y accesible donde pueden explorar y aprender arrastrando y soltando letras, números, colores, formas y animales.",
+                tag_tea: "TEA",
+                tag_edu: "Educativo",
+                tag_interactive: "Interactivo",
+                tag_mit: "Licencia MIT",
+                pending: "Pendiente",
+                project_status_completed: "Completado",
+                project2_title: "Mapa Plazas PMR Madrid",
+                project2_desc: "Un mapa interactivo que localiza las plazas de estacionamiento reservadas para Personas con Movilidad Reducida en la ciudad de Madrid, facilitando el día a día.",
+                tag_pmr: "PMR",
+                tag_map: "Mapa",
+                tag_accessibility: "Accesibilidad",
+                view_project: "Ver proyecto",
+                collab_title: "Colabora",
+                collab_desc: "Somos una agencia pequeña, un proyecto casi personal. Si te apetece, aporta tus ideas. ¿Qué quieres que construyamos? ¿A quién ayudaría tu propuesta?",
+                collab_cta: "Cuéntanos tu idea",
+                collab_designers: "<strong>¿Eres diseñadora?</strong> Necesitamos tu visión para asegurar que estas herramientas sean tan humanas y bellas como útiles.",
+                footer: "Todos los derechos reservados."
+            },
+            en: {
+                contact: "Contact",
+                tag: "Developing ideas",
+                h1_1: "Technology is the medium.<br>",
+                h1_2: "People are the goal.",
+                sub: "We create digital tools focused on delivering real value. Solutions designed with empathy, built to ease daily life and bridge gaps where they are most needed.",
+                quote: "I really like having contradictory ideas, because that way, even though I always mess up, I'm always right.",
+                p1_title: "Digital Empathy",
+                p1_desc: "Code doesn't understand emotions, but we who use it do. We design thinking of who is on the other side of the screen.",
+                p2_title: "Real Impact",
+                p2_desc: "We believe in projects that, regardless of their size, solve real problems and improve people's lives, even just a little.",
+                p3_title: "Accessibility",
+                p3_desc: "Technology should open doors, not close them. We build simple, direct tools within everyone's reach.",
+                projects_title: "Our Projects",
+                project_status: "In development",
+                project1_title: "Marcos' Box",
+                project1_desc: "An interactive educational app designed for children with ASD. A safe and accessible space where they can explore and learn by dragging and dropping letters, numbers, colors, shapes, and animals.",
+                tag_tea: "ASD",
+                tag_edu: "Educational",
+                tag_interactive: "Interactive",
+                tag_mit: "MIT License",
+                pending: "Pending",
+                project_status_completed: "Completed",
+                project2_title: "Madrid PRM Parking Map",
+                project2_desc: "An interactive map locating all reserved parking spaces for Persons with Reduced Mobility (PRM) in the city of Madrid, making daily life easier.",
+                tag_pmr: "PRM",
+                tag_map: "Map",
+                tag_accessibility: "Accessibility",
+                view_project: "View project",
+                collab_title: "Collaborate",
+                collab_desc: "We are a small agency, almost a personal project. If you feel like it, share your ideas. What do you want us to build? Who would your proposal help?",
+                collab_cta: "Tell us your idea",
+                collab_designers: "<strong>Are you a designer?</strong> We need your vision to ensure these tools are as human and beautiful as they are useful.",
+                footer: "All rights reserved."
+            }
+        };
+
+        let currentLang = 'es';
+
+        function toggleLang() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            // Update document language for SEO/Accessibility
+            document.documentElement.lang = currentLang;
+            
+            // Update button text to show the option to switch back
+            document.getElementById('lang-btn').innerText = currentLang === 'es' ? 'EN' : 'ES';
+            
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
